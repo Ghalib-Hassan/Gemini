@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gemini/Model/model.dart';
+import 'package:gemini/key.dart';
 import 'package:http/http.dart' as http;
 
 class GeminiProvider extends ChangeNotifier {
@@ -8,9 +9,7 @@ class GeminiProvider extends ChangeNotifier {
   GeminiModel geminiModel = GeminiModel();
   dynamic geminiResponse(String prompt) async {
     message.add(prompt);
-    String url =
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyB-mhJOrXRKF1Sf26JTDRyko3EKsgZwT2c";
-
+    String url = apiKey;
     dynamic headers = {"Content-Type": "application/json"};
 
     dynamic body = {
